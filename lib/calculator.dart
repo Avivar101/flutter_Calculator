@@ -35,4 +35,28 @@ class Calculator {
 
     return NumberFormatter.format(result.toString());
   }
+
+  static String addPeriod(String calculatorString) {
+    if(calculatorString.isEmpty) {
+      return calculatorString = '0${Calculations.period}';
+    }
+
+    RegExp exp = RegExp(r"\d\.");
+    Iterable<Match> matches = exp.allMatches(calculatorString);
+    int maxMatches = Calculator.includesOperation(calculatorString) ? 2 : 1;
+
+    return matches.length == maxMatches
+        ? calculatorString
+        : calculatorString += Calculations.period;
+  }
+
+  static bool includesOperation(String calculatorString) {
+    for(var operation in Calculations.operations) {
+      if(calculatorString.contains(operation)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
 }

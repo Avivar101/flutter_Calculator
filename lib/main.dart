@@ -68,12 +68,42 @@ class _MyHomePageState extends State<MyHomePage> {
 
   }
 
-  void _onPressed({String buttonText}) {
+  void _onPressed({String? buttonText}) {
     //Standard mathematical operations
     if (Calculations.operations.contains(buttonText)) {
       return setState(() {
-        operations.add(buttonText);
+        operations.add(buttonText!);
         calculatorString += ' $buttonText ';
+      });
+    }
+
+    // On CLEAR press
+    if (buttonText == Calculations.clear) {
+      return setState(() {
+        operations.add(Calculations.clear);
+        calculatorString = "";
+      });
+    }
+
+    // On Equals press
+    if (buttonText == Calculations.equal) {
+      String newCalculatorString = Calculator.parseString(calculatorString);
+
+      return setState(() {
+        if (newCalculatorString != calculatorString) {
+          // only add evaluated strings to calculations array
+          calculations.add(calculatorString);
+        }
+
+        operations.add(Calculations.equal);
+        calculatorString = newCalculatorString;
+        isNewEquation = false;
+      });
+    }
+
+    if (buttonText == Calculations.period) {
+      return setState(() {
+        calculatorString = Calculator.addPeriod(calculatorString);
       });
     }
 
@@ -81,7 +111,10 @@ class _MyHomePageState extends State<MyHomePage> {
       if (!isNewEquation
           && operations.isNotEmpty
           && operations.last == Calculations.equal) {
-
+        calculatorString = buttonText!;
+        isNewEquation = true;
+      } else {
+        calculatorString += buttonText!;
       }
     });
   }
