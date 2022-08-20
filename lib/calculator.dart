@@ -31,6 +31,24 @@ class Calculator {
       b = double.parse(numbersToAdd[1]);
 
       result = Calculations.addDouble(a, b);
+    } else if (text.contains(Calculations.multiply)) {
+      numbersToAdd = text.split(Calculations.multiply);
+      a = double.parse(numbersToAdd[0]);
+      b = double.parse(numbersToAdd[1]);
+      
+      result = Calculations.multiplyDouble(a, b);
+    } else if (text.contains(Calculations.divide)) {
+      numbersToAdd = text.split(Calculations.divide);
+      a = double.parse(numbersToAdd[0]);
+      b = double.parse(numbersToAdd[1]);
+      
+      result = Calculations.divideDouble(a, b);
+    } else if (text.contains(Calculations.subtract)) {
+      numbersToAdd = text.split(Calculations.subtract);
+      a = double.parse(numbersToAdd[0]);
+      b = double.parse(numbersToAdd[1]);
+
+      result = Calculations.subtractDouble(a, b);
     } else {return text;}
 
     return NumberFormatter.format(result.toString());

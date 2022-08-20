@@ -8,11 +8,11 @@ class CalculatorButtons extends StatelessWidget {
 
   final CalculatorButtonTapCallback onTap;
   final calculatorButtonRows = [
-    ['7', '8','9', ],
-    ['4', '5', '6',],
-    ['1', '2', '3',],
-    ['0', '00'],
-    []
+    ['7', '8','9', Calculations.divide],
+    ['4', '5', '6', Calculations.multiply],
+    ['1', '2', '3', Calculations.subtract],
+    [Calculations.period, '0', '00', Calculations.add],
+    [Calculations.clear, Calculations.equal]
   ];
 
   @override
