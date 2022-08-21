@@ -55,6 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           NumberDisplay(value: calculatorString, key: UniqueKey(),),
           CalculatorButtons(onTap: _onPressed),
