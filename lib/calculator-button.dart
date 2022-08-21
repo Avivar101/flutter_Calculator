@@ -22,6 +22,7 @@ class CalculatorButton extends StatelessWidget {
               style: TextButton.styleFrom(
                 primary: Colors.blue,
                 padding: const EdgeInsets.all(30),
+                
               ),
             onPressed: () => onTap(buttonText: text),
             child: Text(
