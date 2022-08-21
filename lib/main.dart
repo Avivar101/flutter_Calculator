@@ -18,7 +18,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue
       ),
-      home: MyHomePage(title: 'Calculator', key: UniqueKey(),),
+      home: MyHomePage(title: 'Calculator', key: UniqueKey()),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -66,7 +67,17 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
   _navigateAndDisplayHistory(BuildContext context) async {
+    final result = await Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => History(operations: calculations))
+    );
 
+    if (result != null) {
+      setState(() {
+        isNewEquation = false;
+        calculatorString = Calculator.parseString(result);
+      });
+    }
   }
 
   void _onPressed({String? buttonText}) {
