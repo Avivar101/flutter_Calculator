@@ -20,7 +20,6 @@ class CalculatorButton extends StatelessWidget {
           ),
           child: TextButton(
               style: TextButton.styleFrom(
-                primary: Colors.blue,
                 padding: const EdgeInsets.all(30),
                 
               ),

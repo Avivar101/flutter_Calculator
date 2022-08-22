@@ -6,7 +6,9 @@ import 'calculator-row.dart';
 class CalculatorButtons extends StatelessWidget {
   CalculatorButtons({Key? key, required this.onTap}) : super(key: key);
 
+  //onTap display function
   final CalculatorButtonTapCallback onTap;
+  //map of buttons
   final calculatorButtonRows = [
     ['7', '8','9', Calculations.divide],
     ['4', '5', '6', Calculations.multiply],

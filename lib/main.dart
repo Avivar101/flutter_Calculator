@@ -1,22 +1,27 @@
+//imports
 import 'package:flutter/material.dart';
 import 'calculator.dart';
 import 'number-display.dart';
 import 'calculator-buttons.dart';
 import 'history.dart';
 
+//run root app
 void main() {
   runApp(const MyApp());
 }
 
+//root class
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
+
+  //builds the home page with a materialApp
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Calculator',
       theme: ThemeData(
-        primarySwatch: Colors.blue
+        primarySwatch: Colors.deepPurple
       ),
       home: MyHomePage(title: 'Calculator', key: UniqueKey()),
       debugShowCheckedModeBanner: false,
@@ -49,6 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
         actions: <Widget>[
           IconButton(
               onPressed: () {
+                //calculation history
                 _navigateAndDisplayHistory(context);
               },
               icon: const Icon(Icons.history)
@@ -58,7 +64,9 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
+          //displays the numbers your calculating
           NumberDisplay(value: calculatorString, key: UniqueKey(),),
+          //displays the calculator buttons
           CalculatorButtons(onTap: _onPressed),
         ],
       ),

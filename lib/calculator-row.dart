@@ -9,6 +9,7 @@ class CalculatorRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //takes in rowButtons
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: rowButtons(),
@@ -16,8 +17,10 @@ class CalculatorRow extends StatelessWidget {
   }
 
   List<Widget> rowButtons() {
+    //rowButtons as a list Widget
     List<Widget> rowButtons = [];
 
+    //maps out calculatorRowButtons as a grid of numbers/numberPad
     for (var buttonText in buttons) {
       rowButtons.add(
         CalculatorButton(text: buttonText, onTap: onTap)
