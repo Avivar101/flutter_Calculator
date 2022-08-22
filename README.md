@@ -4,6 +4,7 @@
 //TODO: 
     Code review and comment
     implementation on del button
+    handle multiple operations
     fix bugs
     bottom NavBar for other utilities -
         -> clock
