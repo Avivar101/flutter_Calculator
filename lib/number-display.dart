@@ -14,7 +14,11 @@ class NumberDisplay extends StatelessWidget {
           children: <Widget>[
             Text(
               value,
-              style: const TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Rubik-Regular'
+              ),
             ),
           ],
         ));

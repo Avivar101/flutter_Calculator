@@ -21,12 +21,16 @@ class CalculatorButton extends StatelessWidget {
           child: TextButton(
               style: TextButton.styleFrom(
                 padding: const EdgeInsets.all(30),
-                
               ),
             onPressed: () => onTap(buttonText: text),
             child: Text(
               text,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+              style: const TextStyle(
+                  color: Colors.black87,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                  fontFamily: 'Rubik-Regular'
+              ),
             ),
           ),
         ));

@@ -10,7 +10,7 @@
         -> notes
         -> todo
         -> calender
-    design
+    theme design
     Consider applying a flex factor (e.g. using an Expanded widget)
         to force the children of the RenderFlex to fit within the
         available space instead of being sized to their natural size.

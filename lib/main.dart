@@ -54,13 +54,16 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
         centerTitle: false,
+        elevation: 0,
+        backgroundColor: const Color(0xFFFFFFFF),
         actions: <Widget>[
           IconButton(
               onPressed: () {
                 //calculation history
                 _navigateAndDisplayHistory(context);
               },
-              icon: const Icon(Icons.history)
+              icon: const Icon(Icons.history),
+            color: Colors.black87,
           )
         ],
       ),
