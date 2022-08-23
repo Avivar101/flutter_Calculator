@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+
 import 'number-formatter.dart';
 
 class Calculations {
@@ -6,8 +8,11 @@ class Calculations {
   static const subtract = '-';
   static const add = '+';
   static const divide = '/';
-  static const clear = 'CLEAR';
+  static const clear = 'C';
   static const equal = '=';
+  static const backSpace = 'Del';
+  static const brackets = '( )';
+  static const percentage = '%';
   static const operations= [
     Calculations.add,
     Calculations.multiply,
@@ -29,6 +34,9 @@ class Calculator {
       numbersToAdd = text.split(Calculations.add);
       a = double.parse(numbersToAdd[0]);
       b = double.parse(numbersToAdd[1]);
+      if (kDebugMode) {
+        print(a);
+      }
 
       result = Calculations.addDouble(a, b);
     } else if (text.contains(Calculations.multiply)) {
@@ -66,6 +74,19 @@ class Calculator {
     return matches.length == maxMatches
         ? calculatorString
         : calculatorString += Calculations.period;
+  }
+
+  static String backSpace(String calculatorString) {
+    if(calculatorString.isNotEmpty) {
+      if (kDebugMode) {
+        print('del');
+      }
+      return calculatorString = calculatorString[-1];
+    }
+    if (kDebugMode) {
+      print(calculatorString);
+    }
+    return calculatorString;
   }
 
   static bool includesOperation(String calculatorString) {

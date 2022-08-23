@@ -1,4 +1,5 @@
 //imports
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'calculator.dart';
 import 'number-display.dart';
@@ -41,8 +42,10 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   bool isNewEquation = true;
   List<double> values = [];
+  // current calculation operation
   List<String> operations = [];
   List<String> calculations = [];
+  //variable for the calculation figures on the display
   String calculatorString = '';
 
   @override
@@ -75,6 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
   _navigateAndDisplayHistory(BuildContext context) async {
+    //build history page
     final result = await Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => History(operations: calculations))
@@ -90,11 +94,16 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _onPressed({String? buttonText}) {
     //Standard mathematical operations
+    // the function that updates the display with the arithmetic operation button when pressed
     if (Calculations.operations.contains(buttonText)) {
       return setState(() {
         operations.add(buttonText!);
         calculatorString += ' $buttonText ';
+        if (kDebugMode) {
+          print(buttonText);
+        }
       });
+
     }
 
     // On CLEAR press
@@ -121,9 +130,18 @@ class _MyHomePageState extends State<MyHomePage> {
       });
     }
 
+    // on Period press
     if (buttonText == Calculations.period) {
       return setState(() {
         calculatorString = Calculator.addPeriod(calculatorString);
+      });
+    }
+
+    // on backSpace press
+    if (buttonText == Calculations.backSpace) {
+      return setState(() {
+        print(calculatorString[-1]);
+        calculatorString = Calculator.backSpace(calculatorString);
       });
     }
 
