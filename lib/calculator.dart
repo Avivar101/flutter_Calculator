@@ -76,15 +76,12 @@ class Calculator {
         : calculatorString += Calculations.period;
   }
 
-  static String backSpace(String calculatorString) {
+  static List backSpace(List calculatorString) {
     if(calculatorString.isNotEmpty) {
       if (kDebugMode) {
-        print('del');
+        print(calculatorString.removeLast() as List<String>);
+        return calculatorString;
       }
-      return calculatorString = calculatorString[-1];
-    }
-    if (kDebugMode) {
-      print(calculatorString);
     }
     return calculatorString;
   }

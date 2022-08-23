@@ -98,7 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
     if (Calculations.operations.contains(buttonText)) {
       return setState(() {
         operations.add(buttonText!);
-        calculatorString += ' $buttonText ';
+        calculatorString += buttonText;
         if (kDebugMode) {
           print(buttonText);
         }
@@ -140,8 +140,8 @@ class _MyHomePageState extends State<MyHomePage> {
     // on backSpace press
     if (buttonText == Calculations.backSpace) {
       return setState(() {
-        print(calculatorString[-1]);
-        calculatorString = Calculator.backSpace(calculatorString);
+        String result = calculatorString.substring(0, calculatorString.length - 1);
+        calculatorString = result;
       });
     }
 
