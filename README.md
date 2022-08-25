@@ -17,3 +17,5 @@ This project was built to learn the basics of the flutter framework
 * [ ]  fix buttons ->
   * [ ]  percentage (%)
   * [ ]  brackets ( )
+
+![Screenshot_1661325336.png](./assets/Screenshot_1661325336.png)
